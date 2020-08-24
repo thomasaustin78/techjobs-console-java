@@ -110,7 +110,38 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        String dataFile = "resources/job_data.csv";
+        String[] rows = dataFile.split("\n");
+        String[] keys = rows[0].split(",");
 
-        System.out.println("printJobs is not implemented yet");
+
+        ArrayList<HashMap> listOfJobs = new Arraylist<HashMap>();
+
+        Hashmap<String, String> jobs = new Hashmap<String, String>();
+        for(int i = 1; i < rows.length; i++) {
+            String[] values = rows[i].split(",");
+
+            for(int j = 0; j < keys.length; j++) {
+                jobs.put(keys[j], rows[j]);
+            }
+            listOfJobs.add(jobs);
+        }
+
+        ArrayList<String> myJobs = new ArrayList<String>();
+            System.out.println(myJobs.get(0));
+
+            for(int i = 0; i < listOfJobs.size(); i++) {
+                Object name = listOfJobs.get(i).get("name");
+                Object employer = listOfJobs.get(i).get("employer");
+                Object location = listOfJobs.get(i).get("location");
+                Object positionType = listOfJobs.get(i).get("position type");
+                Object coreCompetency = listOfJobs.get(i).get("core competency");
+            }
+
+            System.out.println("position type: " + myJobs.get(positionType));
+            System.out.println("name: " + myJobs.get(name));
+            System.out.println("employer: " + myJobs.get(employer));
+            System.out.println("location: " + myJobs.get(location));
+            System.out.println("core competency: " + myJobs.get(coreCompetency));
     }
 }
