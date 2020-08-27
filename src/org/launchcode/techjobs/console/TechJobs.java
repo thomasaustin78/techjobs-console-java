@@ -61,7 +61,7 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not yet implemented.");
+                    printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -113,14 +113,18 @@ public class TechJobs {
 
 
         if (someJobs.size() == 0) {
-            System.out.println("No results");
+            System.out.println("No results were found");
         } else {
             for (Integer i = 0; i < someJobs.size(); i++) {
+                System.out.println("");
+                System.out.println("*****");
                 System.out.println("position type: " + someJobs.get(i).get("position type"));
                 System.out.println("name: " + someJobs.get(i).get("name"));
                 System.out.println("employer: " + someJobs.get(i).get("employer"));
                 System.out.println("location: " + someJobs.get(i).get("location"));
                 System.out.println("core competency: " + someJobs.get(i).get("core competency"));
+                System.out.println("*****");
+                System.out.println("");
             }
         }
     }
